@@ -1,4 +1,4 @@
-package ssireum;
+	package ssireum;
 
 import java.awt.Container;
 
@@ -34,10 +34,6 @@ public class GameScreen extends JFrame{
 	//타이머제어변수
 	boolean TimerOn = false;
 	public GameScreen() {
-
-
-
-
 		//기본설정
 		setTitle("게임화면");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
