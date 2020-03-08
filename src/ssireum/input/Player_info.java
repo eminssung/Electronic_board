@@ -38,7 +38,7 @@ public class Player_info extends JFrame {
       
       //큰틀 , 기본값 설정
       contentPane = getContentPane();
-      setTitle("game and player info");
+      setTitle("정보 입력");
       
       //큰 패널 추가
       contentPane.setLayout(new BorderLayout());
@@ -48,12 +48,12 @@ public class Player_info extends JFrame {
       north();
       
       //센터
-      Center = new JPanel(new GridLayout(1,2));
+      Center = new JPanel(new GridLayout(1, 2));
       centerLeft();
       centerRight();
    
       //설정
-      setTitle("game and player info");
+      setTitle("정보 입력");
       setSize(800,500);
       setLocation(400, 100);
       setVisible(true);
@@ -107,8 +107,8 @@ public class Player_info extends JFrame {
          Left = new JPanel(new GridLayout(4,1));
          p0 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
          p1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
-         p2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 50));
-         p3 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 50));
+         p2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
+         p3 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
          
          //배경색  설정
          p0.setBackground(Color.black);
@@ -157,58 +157,58 @@ public class Player_info extends JFrame {
       }
       
       private void centerRight() {
-          
-          //레이아웃 나누기
-          Left = new JPanel(new GridLayout(4,1));
-          p0 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
-          p1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
-          p2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 50));
-          p3 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 50));
-          
-          //배경색  설정
-          p0.setBackground(Color.black);
-          p1.setBackground(Color.black);
-          p2.setBackground(Color.black);
-          p3.setBackground(Color.black);
-          
-          //레이블 
-          blue=new JLabel("청코너");
-          name1 = new JLabel("이름 :");
-          group1 = new JLabel("소속 :");
-          weight1 = new JLabel("몸무게 :");
-          
-          //레이블 폰트 적용
-          blue.setFont(small);
-          blue.setForeground(Color.blue);
-          name1.setFont(middle);
-          name1.setForeground(Color.white); 
-          group1.setFont(middle);
-          group1.setForeground(Color.white); 
-          weight1.setFont(middle);
-          weight1.setForeground(Color.white); 
-          
-          //텍스트 필드
-          inputName1 = new JTextField(10);
-          inputGroup1= new JTextField(10);
-          inputWeight1= new JTextField(10);
-          
-          //패널에 추가
-          p0.add(blue);
-          p1.add(name1);
-          p1.add(inputName1);
-          p2.add(group1);
-          p2.add(inputGroup1);
-          p3.add(weight1);
-          p3.add(inputWeight1);
-          
-          Left.add(p0);
-          Left.add(p1);
-          Left.add(p2);
-          Left.add(p3);
-          
-          Center.add(Left);
-          contentPane.add(Center,"Center");
-          
-       }
+         
+         //레이아웃 나누기
+         Right= new JPanel(new GridLayout(4,1));
+         p00 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
+         p11 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
+         p22 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
+         p33 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10,50));
+         
+         //배경색  설정
+         p00.setBackground(Color.black);
+         p11.setBackground(Color.black);
+         p22.setBackground(Color.black);
+         p33.setBackground(Color.black);
+         
+         //레이블 
+         blue=new JLabel("청코너");
+         name2= new JLabel("이름 :");
+         group2 = new JLabel("소속 :");
+         weight2 = new JLabel("몸무게 :");
+         
+         //레이블 폰트 적용
+         blue.setFont(small);
+         blue.setForeground(Color.blue);
+         name2.setFont(middle);
+         name2.setForeground(Color.white); 
+         group2.setFont(middle);
+         group2.setForeground(Color.white); 
+         weight2.setFont(middle);
+         weight2.setForeground(Color.white); 
+         
+         //텍스트 필드
+         inputName2 = new JTextField(10);
+         inputGroup2= new JTextField(10);
+         inputWeight2= new JTextField(10);
+         
+         //패널에 추가
+         p00.add(blue);
+         p11.add(name2);
+         p11.add(inputName2);
+         p22.add(group2);
+         p22.add(inputGroup2);
+         p33.add(weight2);
+         p33.add(inputWeight2);
+         
+         Right.add(p00);
+         Right.add(p11);
+         Right.add(p22);
+         Right.add(p33);
+         
+         Center.add(Right);
+         contentPane.add(Center,"Center");
+         
+      }
       
 }
