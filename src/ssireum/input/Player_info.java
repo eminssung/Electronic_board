@@ -12,7 +12,7 @@ public class Player_info extends JFrame {
    private JPanel king,checkbox;
    private JLabel kinglabel;//주관
    private JTextField kingtext;
-   private JCheckBox[] type=new JCheckBox[2];//유형
+   private JRadioButton[] type=new JRadioButton[2];//유형
    
 
    //센터 왼쪽 패널 구성요소
@@ -78,8 +78,8 @@ public class Player_info extends JFrame {
          kingtext =new JTextField(10);
          
          //체크박스      
-         type[0] = new JCheckBox("5판 3선제",false);
-         type[1] = new JCheckBox("3판 2선제",false);
+         type[0] = new JRadioButton("5판 3선제",false);
+         type[1] = new JRadioButton("3판 2선제",false);
          type[0].setFont(Big);
          type[1].setFont(Big);
          type[0].setBackground(Color.black);
@@ -87,6 +87,14 @@ public class Player_info extends JFrame {
          checkbox.setBackground(Color.black);
          type[0].setForeground(Color.white); 
          type[1].setForeground(Color.white);
+         
+         //라디오 버튼 그룹화
+         ButtonGroup groupRd = new ButtonGroup();
+         groupRd.add(type[0]);
+         groupRd.add(type[1]);
+         this.add(type[0]);
+         this.add(type[1]);
+         
          
          //패널 배치
          king.add(kinglabel);
