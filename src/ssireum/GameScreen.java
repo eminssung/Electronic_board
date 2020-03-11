@@ -23,9 +23,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import ssireum.Panels.BluePlayer;
-import ssireum.Panels.HeaderTitle;
-import ssireum.Panels.RedPlayer;
+import ssireum.Player;
+import ssireum.Game.AdPanel;
+import ssireum.Game.BluePlayer;
+import ssireum.Game.HeaderTitle;
+import ssireum.Game.RedPlayer;
+import ssireum.Game.ScorePanel;
 
 
 public class GameScreen extends JFrame{
@@ -33,16 +36,28 @@ public class GameScreen extends JFrame{
 	int time=15;
 	//타이머제어변수
 	boolean TimerOn = false;
-	public GameScreen() {
+	Container c;
+	public GameScreen(ssireum.Player blue,ssireum.Player red) {
+		
+		
 		//기본설정
 		setTitle("게임화면");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setAlwaysOnTop(true);
 
 		//전체화면 설정
-		Container c = this.getContentPane();
+		c = this.getContentPane();
 		c.setBackground(Color.black);
 		c.setLayout(new BorderLayout());
+		
+		
+		
+		//타이머
+		timerLabel = new JLabel("15");
+		timerLabel.setFont(new Font("Gothic",Font.BOLD,200));
+		timerLabel.setForeground(Color.white);
+		timerLabel.setBorder(BorderFactory.createEmptyBorder(0,50,0,50));
+		
 
 		//헤더생성
 		HeaderTitle HeaderTitle = new HeaderTitle("2020홍성설날장사씨름대회");
@@ -50,34 +65,15 @@ public class GameScreen extends JFrame{
 		//헤더 공백설정
 		HeaderTitle.setBorder(BorderFactory.createEmptyBorder(80,0,0,0));
 
+		//센터패널 생성 + 추가
+		createCenterPanel(blue,red);
 
+		//위쪽패널 추가
+		c.add(HeaderTitle,"North");
 
-		//선수정보
-		BluePlayer bp = new BluePlayer("이다성", "경기광주시청");
-		RedPlayer rp = new RedPlayer("나재선", "울산동구청");
-
-		//선수정보 마진설정
-		bp.setBorder(BorderFactory.createEmptyBorder(200,0,50,0));
-		rp.setBorder(BorderFactory.createEmptyBorder(200,0,50,0));
-
-
-		//타이머
-		timerLabel = new JLabel("15");
-		timerLabel.setFont(new Font("Gothic",Font.BOLD,200));
-		timerLabel.setForeground(Color.white);
-
-
-		//센터패널
-		JPanel CenterPanel = new JPanel();
-		CenterPanel.setLayout(new FlowLayout());
-		CenterPanel.setBackground(Color.black);
-
-		CenterPanel.add(bp);
-		CenterPanel.add(timerLabel);
-		CenterPanel.add(rp);
-
-
-		JButton b1 = new JButton("시작");
+		//광고패널생성 + 추가
+		AdPanel adPanel = new AdPanel();
+		c.add(adPanel,"South");
 
 		//풀스크린
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -85,12 +81,6 @@ public class GameScreen extends JFrame{
 		setVisible(true);
 
 
-
-		//전체화면에 추가
-		c.add(CenterPanel,"Center");
-		//		c.add(timerLabel,"Center");
-		c.add(HeaderTitle,"North");
-		c.add(b1,"South");
 
 		//타이머 세팅
 		Timer timer = new Timer(1000, new ActionListener(){   
@@ -113,10 +103,10 @@ public class GameScreen extends JFrame{
 
 
 
-
+		//키어댑터
 		this.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
-				//				System.out.println(e.getKeyChar()+" keyTyped key");
+								System.out.println(e.getKeyChar()+" keyTyped key");
 				if(e.getKeyChar()== ' ') {
 					if(TimerOn) {
 						timer.stop();
@@ -132,4 +122,40 @@ public class GameScreen extends JFrame{
 		});
 
 	}
+	
+	public void createCenterPanel(Player blue,Player red) {
+		
+
+		//선수정보
+		BluePlayer bp = new BluePlayer(blue.name, blue.affiliation);
+		RedPlayer rp = new RedPlayer(red.name, red.affiliation);
+		
+
+		
+		//선수정보 마진설정
+		bp.setBorder(BorderFactory.createEmptyBorder(200,0,50,0));
+		rp.setBorder(BorderFactory.createEmptyBorder(200,0,50,0));
+
+
+		//센터패널
+		JPanel CenterPanel = new JPanel();
+		CenterPanel.setLayout(new FlowLayout());
+		CenterPanel.setBackground(Color.black);
+
+		
+		//스코어 추가
+		ScorePanel ScorePanel = new ScorePanel(timerLabel,blue,red);
+		
+		//추가
+		CenterPanel.add(bp);
+		CenterPanel.add(ScorePanel);
+		CenterPanel.add(rp);
+		
+		c.add(CenterPanel,"Center");
+
+	}
+	
+
+	
+	
 }

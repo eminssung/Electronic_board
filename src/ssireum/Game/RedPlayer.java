@@ -1,4 +1,4 @@
-package ssireum.Panels;
+package ssireum.Game;
 
 import java.awt.Color;
 import java.awt.Component;

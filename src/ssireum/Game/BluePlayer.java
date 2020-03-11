@@ -1,4 +1,4 @@
-package ssireum.Panels;
+package ssireum.Game;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.LayoutManager;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 public class BluePlayer extends JPanel {
 
 	public BluePlayer(String name,String affiliation) {
+		this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 300));
 		JLabel NameLabel = new JLabel(name);
 		JLabel AffLabel = new JLabel(affiliation);
 		

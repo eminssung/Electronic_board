@@ -1,7 +1,13 @@
 package ssireum.input;
 
 import javax.swing.*;
+
+import ssireum.GameScreen;
+import ssireum.Player;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Player_info extends JFrame {
    
@@ -43,6 +49,33 @@ public class Player_info extends JFrame {
       //큰 패널 추가
       contentPane.setLayout(new BorderLayout());
       
+      
+     JButton enter = new JButton("시작");
+     
+     contentPane.add(enter,"South");
+     
+     enter.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String BlueName = inputName1.getText();
+			String BlueWeight = inputWeight1.getText();
+			String BlueGroup = inputGroup1.getText();
+			
+			Player BluePlayer = new Player(BlueName,BlueGroup,BlueWeight);
+			
+			
+			String RedName = inputName2.getText();
+			String RedWeight = inputWeight2.getText();
+			String RedGroup = inputGroup2.getText();
+			
+			Player RedPlayer = new Player(RedName,RedGroup,RedWeight);
+			
+			new GameScreen(BluePlayer, RedPlayer);
+			
+		}
+	});
+      
       //North 패널 레이아웃 나누기
       North = new JPanel(new GridLayout(1, 2));
       north();
@@ -61,52 +94,52 @@ public class Player_info extends JFrame {
 
       }
    
-      private void north() {
-         
-         //레이아웃
-         king = new JPanel(new FlowLayout(FlowLayout.LEFT, 10,10));
-         checkbox = new JPanel();
-         king.setBackground(Color.black);
-         checkbox.setBackground(Color.black);
-         
-         //레이블
-         kinglabel = new JLabel("주관 : ");
-         kinglabel.setFont(Big);
-         kinglabel.setForeground(Color.white); 
-         
-         //텍스트 필드
-         kingtext =new JTextField(10);
-         
-         //체크박스      
-         type[0] = new JRadioButton("5판 3선제",false);
-         type[1] = new JRadioButton("3판 2선제",false);
-         type[0].setFont(Big);
-         type[1].setFont(Big);
-         type[0].setBackground(Color.black);
-         type[1].setBackground(Color.black);
-         checkbox.setBackground(Color.black);
-         type[0].setForeground(Color.white); 
-         type[1].setForeground(Color.white);
-         
-         //라디오 버튼 그룹화
-         ButtonGroup groupRd = new ButtonGroup();
-         groupRd.add(type[0]);
-         groupRd.add(type[1]);
-         this.add(type[0]);
-         this.add(type[1]);
-         
-         
-         //패널 배치
-         king.add(kinglabel);
-         king.add(kingtext);
-         checkbox.add(type[0]);
-         checkbox.add(type[1]);
-         North.add(king);
-         North.add(checkbox);
-         
-         contentPane.add(North,"North");
-      
-      }
+   private void north() {
+       
+       //레이아웃
+       king = new JPanel(new FlowLayout(FlowLayout.LEFT, 10,10));
+       checkbox = new JPanel();
+       king.setBackground(Color.black);
+       checkbox.setBackground(Color.black);
+       
+       //레이블
+       kinglabel = new JLabel("주관 : ");
+       kinglabel.setFont(Big);
+       kinglabel.setForeground(Color.white); 
+       
+       //텍스트 필드
+       kingtext =new JTextField(10);
+       
+       //체크박스      
+       type[0] = new JRadioButton("5판 3선제",false);
+       type[1] = new JRadioButton("3판 2선제",false);
+       type[0].setFont(Big);
+       type[1].setFont(Big);
+       type[0].setBackground(Color.black);
+       type[1].setBackground(Color.black);
+       checkbox.setBackground(Color.black);
+       type[0].setForeground(Color.white); 
+       type[1].setForeground(Color.white);
+       
+       //라디오 버튼 그룹화
+       ButtonGroup groupRd = new ButtonGroup();
+       groupRd.add(type[0]);
+       groupRd.add(type[1]);
+       this.add(type[0]);
+       this.add(type[1]);
+       
+       
+       //패널 배치
+       king.add(kinglabel);
+       king.add(kingtext);
+       checkbox.add(type[0]);
+       checkbox.add(type[1]);
+       North.add(king);
+       North.add(checkbox);
+       
+       contentPane.add(North,"North");
+    
+    }
 
       
       private void centerLeft() {
@@ -129,7 +162,7 @@ public class Player_info extends JFrame {
          name1 = new JLabel("이름 :");
          group1 = new JLabel("소속 :");
          weight1 = new JLabel("몸무게 :");
-         
+         	
          //레이블 폰트 적용
          red.setFont(small);
          red.setForeground(Color.red);
