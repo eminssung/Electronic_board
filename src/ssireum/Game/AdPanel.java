@@ -1,5 +1,6 @@
 package ssireum.Game;
 
+<<<<<<< HEAD
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -70,5 +71,22 @@ public class AdPanel extends JPanel {
 		});
 		file_index = ++ file_index % av_list.length; runAV();
 	}
+=======
+import java.awt.Color;
+import java.awt.LayoutManager;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class AdPanel extends JPanel {
+
+	public AdPanel() {
+		this.setBackground(Color.gray);
+		this.setBorder(BorderFactory.createEmptyBorder(200,0,0,0));
+		this.add(new JLabel("±¤°í"));
+	}
+
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 	
 }

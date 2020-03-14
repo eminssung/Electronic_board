@@ -18,7 +18,11 @@ public class Player_info extends JFrame {
    private JPanel king,checkbox;
    private JLabel kinglabel;//주관
    private JTextField kingtext;
+<<<<<<< HEAD
    private JCheckBox[] type=new JCheckBox[2];//유형
+=======
+   private JRadioButton[] type=new JRadioButton[2];//유형
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
    
 
    //센터 왼쪽 패널 구성요소
@@ -71,13 +75,19 @@ public class Player_info extends JFrame {
 			
 			Player RedPlayer = new Player(RedName,RedGroup,RedWeight);
 			
+<<<<<<< HEAD
 			setNoVisible();
+=======
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 			new GameScreen(BluePlayer, RedPlayer);
 			
 		}
 	});
       
+<<<<<<< HEAD
      
+=======
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
       //North 패널 레이아웃 나누기
       North = new JPanel(new GridLayout(1, 2));
       north();
@@ -96,6 +106,7 @@ public class Player_info extends JFrame {
 
       }
    
+<<<<<<< HEAD
       private void north() {
          
          //레이아웃
@@ -134,6 +145,54 @@ public class Player_info extends JFrame {
          contentPane.add(North,"North");
       
       }
+=======
+   private void north() {
+       
+       //레이아웃
+       king = new JPanel(new FlowLayout(FlowLayout.LEFT, 10,10));
+       checkbox = new JPanel();
+       king.setBackground(Color.black);
+       checkbox.setBackground(Color.black);
+       
+       //레이블
+       kinglabel = new JLabel("주관 : ");
+       kinglabel.setFont(Big);
+       kinglabel.setForeground(Color.white); 
+       
+       //텍스트 필드
+       kingtext =new JTextField(10);
+       
+       //체크박스      
+       type[0] = new JRadioButton("5판 3선제",false);
+       type[1] = new JRadioButton("3판 2선제",false);
+       type[0].setFont(Big);
+       type[1].setFont(Big);
+       type[0].setBackground(Color.black);
+       type[1].setBackground(Color.black);
+       checkbox.setBackground(Color.black);
+       type[0].setForeground(Color.white); 
+       type[1].setForeground(Color.white);
+       
+       //라디오 버튼 그룹화
+       ButtonGroup groupRd = new ButtonGroup();
+       groupRd.add(type[0]);
+       groupRd.add(type[1]);
+       this.add(type[0]);
+       this.add(type[1]);
+       
+       
+       //패널 배치
+       king.add(kinglabel);
+       king.add(kingtext);
+       checkbox.add(type[0]);
+       checkbox.add(type[1]);
+       North.add(king);
+       North.add(checkbox);
+       
+       contentPane.add(North,"North");
+    
+    }
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 
       
       private void centerLeft() {
@@ -245,9 +304,12 @@ public class Player_info extends JFrame {
          contentPane.add(Center,"Center");
          
       }
+<<<<<<< HEAD
       public void setNoVisible() {
     	  this.setVisible(false);
       }
       
+=======
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
       
 }

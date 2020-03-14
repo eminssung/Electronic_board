@@ -14,7 +14,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+<<<<<<< HEAD
 import java.io.File;
+=======
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
@@ -38,7 +41,10 @@ public class GameScreen extends JFrame{
 	//타이머제어변수
 	boolean TimerOn = false;
 	Container c;
+<<<<<<< HEAD
 	ScorePanel ScorePanel;
+=======
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 	public GameScreen(ssireum.Player blue,ssireum.Player red) {
 		
 		
@@ -74,6 +80,7 @@ public class GameScreen extends JFrame{
 		c.add(HeaderTitle,"North");
 
 		//광고패널생성 + 추가
+<<<<<<< HEAD
 		String[] Video = new String[3];
 		Video[0] = ".\\res\\kang1.mp4";
 		Video[1] = ".\\res\\kang2.mp4";
@@ -84,6 +91,9 @@ public class GameScreen extends JFrame{
 	    
 		AdPanel adPanel = new AdPanel();
 		adPanel.setAV(Video);
+=======
+		AdPanel adPanel = new AdPanel();
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 		c.add(adPanel,"South");
 
 		//풀스크린
@@ -127,6 +137,7 @@ public class GameScreen extends JFrame{
 						TimerOn=true;
 					}
 				}else if(e.getKeyChar() == 'a') {
+<<<<<<< HEAD
 					timer.stop();
 					ScorePanel.blueWin();
 				}
@@ -141,6 +152,9 @@ public class GameScreen extends JFrame{
 				else if(e.getKeyChar() == ';') {
 					timer.stop();
 					ScorePanel.cautionRed();
+=======
+
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 				}
 			}
 		});
@@ -168,7 +182,11 @@ public class GameScreen extends JFrame{
 
 		
 		//스코어 추가
+<<<<<<< HEAD
 		ScorePanel = new ScorePanel(timerLabel,blue,red);
+=======
+		ScorePanel ScorePanel = new ScorePanel(timerLabel,blue,red);
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 		
 		//추가
 		CenterPanel.add(bp);

@@ -20,11 +20,15 @@ import javax.swing.border.MatteBorder;
 import ssireum.Player;
 
 public class ScorePanel extends JPanel {
+<<<<<<< HEAD
 	public JLabel BlueScoreLabel;
 	public JLabel RedScoreLabel;
 	public int BlueScore = 0;
 	public int RedScore = 0;
 	public CautionPanel caution;
+=======
+
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 	public ScorePanel(JLabel time,Player blue,Player red) {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBackground(Color.black);
@@ -33,7 +37,11 @@ public class ScorePanel extends JPanel {
 		//점수 + 타이머
 		JPanel TopPanel = new JPanel();
 		TopPanel.setLayout(new FlowLayout());
+<<<<<<< HEAD
 		TopPanel.setBackground(Color.black);
+=======
+		TopPanel.setBackground(Color.cyan);
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 		
 		//테두리
 		LineBorder lineborder = new LineBorder(Color.yellow,4,true);
@@ -43,6 +51,7 @@ public class ScorePanel extends JPanel {
 
 
 		//청 스코어라벨
+<<<<<<< HEAD
 		BlueScoreLabel = new JLabel("0");
 		BlueScoreLabel.setFont(new Font("Gothic",Font.BOLD,80));
 		BlueScoreLabel.setForeground(Color.white);
@@ -57,6 +66,22 @@ public class ScorePanel extends JPanel {
 		TopPanel.add(BlueScoreLabel);
 		TopPanel.add(time);
 		TopPanel.add(RedScoreLabel);
+=======
+		JLabel BlueScore = new JLabel("0");
+		BlueScore.setFont(new Font("Gothic",Font.BOLD,80));
+		BlueScore.setForeground(Color.white);
+		BlueScore.setBorder(b10);
+
+		//홍 스코어라벨
+		JLabel RedScore = new JLabel("0");
+		RedScore.setBorder(b10);
+		RedScore.setFont(new Font("Gothic",Font.BOLD,80));
+		RedScore.setForeground(Color.white);
+		
+		TopPanel.add(BlueScore);
+		TopPanel.add(time);
+		TopPanel.add(RedScore);
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 		
 		
 		//경고 + 체중 패널
@@ -64,12 +89,21 @@ public class ScorePanel extends JPanel {
 		BottomPanel.setLayout(new BoxLayout(BottomPanel, BoxLayout.Y_AXIS));
 		BottomPanel.setBackground(Color.black);
 		
+<<<<<<< HEAD
 		caution = new CautionPanel();		
 		WeightPanel weight = new WeightPanel(blue.weight,red.weight);
 	
 		caution.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 500));
 		
 		BottomPanel.add(caution);
+=======
+		AlertPanel alert = new AlertPanel();		
+		WeightPanel weight = new WeightPanel(blue.weight,red.weight);
+	
+		alert.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 500));
+		
+		BottomPanel.add(alert);
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 		BottomPanel.add(weight);
 		
 
@@ -79,6 +113,7 @@ public class ScorePanel extends JPanel {
 		
 		
 	}
+<<<<<<< HEAD
 	
 	public void blueWin() {
 		BlueScore++;
@@ -99,5 +134,7 @@ public class ScorePanel extends JPanel {
 	public void cautionRed() {
 		caution.cautionRed();
 	}
+=======
+>>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 
 }
