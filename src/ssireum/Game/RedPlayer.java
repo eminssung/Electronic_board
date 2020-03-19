@@ -15,11 +15,11 @@ public class RedPlayer extends JPanel {
 		JLabel NameLabel = new JLabel(name);
 		JLabel AffLabel = new JLabel(affiliation);
 
-		NameLabel.setFont(new Font("Gothic",Font.BOLD,200));
+		NameLabel.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,200));
 		NameLabel.setForeground(Color.white);
 
 
-		AffLabel.setFont(new Font("Gothic",Font.BOLD,80));
+		AffLabel.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,80));
 		AffLabel.setForeground(Color.white);
 
 

@@ -1,4 +1,4 @@
-	package ssireum;
+package ssireum;
 
 import java.awt.Container;
 
@@ -14,10 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-<<<<<<< HEAD
-import java.io.File;
-=======
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
+
 import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
@@ -33,20 +30,27 @@ import ssireum.Game.BluePlayer;
 import ssireum.Game.HeaderTitle;
 import ssireum.Game.RedPlayer;
 import ssireum.Game.ScorePanel;
+import ssireum.input.Player_info;
 
 
 public class GameScreen extends JFrame{
 	JLabel timerLabel = null;
-	int time=15;
+	int time=60;
 	//타이머제어변수
 	boolean TimerOn = false;
 	Container c;
-<<<<<<< HEAD
 	ScorePanel ScorePanel;
-=======
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
-	public GameScreen(ssireum.Player blue,ssireum.Player red) {
+	Timer timer;
+	int PlayGameNumber;
+
+	public GameScreen(String GameName,String howManyPlayGame,ssireum.Player blue,ssireum.Player red) {
 		
+		//판수 설정
+		if(howManyPlayGame.contentEquals("5")) {
+			PlayGameNumber=6;
+		}else {
+			PlayGameNumber=4;
+		}
 		
 		//기본설정
 		setTitle("게임화면");
@@ -61,14 +65,14 @@ public class GameScreen extends JFrame{
 		
 		
 		//타이머
-		timerLabel = new JLabel("15");
-		timerLabel.setFont(new Font("Gothic",Font.BOLD,200));
+		timerLabel = new JLabel("60");
+		timerLabel.setFont(new Font("맑은 고딕",Font.BOLD,200));
 		timerLabel.setForeground(Color.white);
 		timerLabel.setBorder(BorderFactory.createEmptyBorder(0,50,0,50));
 		
 
 		//헤더생성
-		HeaderTitle HeaderTitle = new HeaderTitle("2020홍성설날장사씨름대회");
+		HeaderTitle HeaderTitle = new HeaderTitle(GameName);
 
 		//헤더 공백설정
 		HeaderTitle.setBorder(BorderFactory.createEmptyBorder(80,0,0,0));
@@ -80,21 +84,16 @@ public class GameScreen extends JFrame{
 		c.add(HeaderTitle,"North");
 
 		//광고패널생성 + 추가
-<<<<<<< HEAD
 		String[] Video = new String[3];
 		Video[0] = ".\\res\\kang1.mp4";
 		Video[1] = ".\\res\\kang2.mp4";
 		Video[2] = ".\\res\\kang3.mp4";
 		
-		File path = new File(".");
-	    System.out.println(path.getAbsolutePath());
 	    
-		AdPanel adPanel = new AdPanel();
-		adPanel.setAV(Video);
-=======
-		AdPanel adPanel = new AdPanel();
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
-		c.add(adPanel,"South");
+//		AdPanel adPanel = new AdPanel();
+//		adPanel.setAV(Video);
+//
+//		c.add(adPanel,"South");
 
 		//풀스크린
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -104,12 +103,16 @@ public class GameScreen extends JFrame{
 
 
 		//타이머 세팅
-		Timer timer = new Timer(1000, new ActionListener(){   
+		timer = new Timer(1000, new ActionListener(){   
 			public void actionPerformed (ActionEvent e){
 				if(time==1) {
 					time -= 1;
 					timerLabel.setText(0+Integer.toString(time));
-					System.exit(0);
+					time = 30;
+					timerLabel.setText(Integer.toString(time));
+					timer.stop();
+					TimerOn=false;
+					
 				}else {
 					time -= 1;
 					if(time<10) {
@@ -137,24 +140,41 @@ public class GameScreen extends JFrame{
 						TimerOn=true;
 					}
 				}else if(e.getKeyChar() == 'a') {
-<<<<<<< HEAD
 					timer.stop();
+					TimerOn=false;
+					time = 60;
+					timerLabel.setText(Integer.toString(time));
+					timer.stop();
+					TimerOn=false;
 					ScorePanel.blueWin();
+					if(ScorePanel.BlueScore==PlayGameNumber) {
+						dispose();
+						new Player_info();
+					}
 				}
 				else if(e.getKeyChar() == '\'') {
 					timer.stop();
+					TimerOn=false;
+					time = 60;
+					timerLabel.setText(Integer.toString(time));
+					timer.stop();
+					TimerOn=false;
 					ScorePanel.redWin();
+					if(ScorePanel.RedScore==PlayGameNumber) {
+						dispose();
+						new Player_info();
+					}
 				}
 				else if(e.getKeyChar() == 's') {
 					timer.stop();
+					TimerOn=false;
 					ScorePanel.cautionBlue();
 				}
 				else if(e.getKeyChar() == ';') {
 					timer.stop();
+					TimerOn=false;
 					ScorePanel.cautionRed();
-=======
 
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 				}
 			}
 		});
@@ -182,12 +202,8 @@ public class GameScreen extends JFrame{
 
 		
 		//스코어 추가
-<<<<<<< HEAD
 		ScorePanel = new ScorePanel(timerLabel,blue,red);
-=======
-		ScorePanel ScorePanel = new ScorePanel(timerLabel,blue,red);
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
-		
+
 		//추가
 		CenterPanel.add(bp);
 		CenterPanel.add(ScorePanel);

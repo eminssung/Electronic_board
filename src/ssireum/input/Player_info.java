@@ -18,12 +18,9 @@ public class Player_info extends JFrame {
    private JPanel king,checkbox;
    private JLabel kinglabel;//주관
    private JTextField kingtext;
-<<<<<<< HEAD
-   private JCheckBox[] type=new JCheckBox[2];//유형
-=======
+
    private JRadioButton[] type=new JRadioButton[2];//유형
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
-   
+
 
    //센터 왼쪽 패널 구성요소
    private JPanel Left;
@@ -62,32 +59,32 @@ public class Player_info extends JFrame {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String BlueName = inputName1.getText();
-			String BlueWeight = inputWeight1.getText();
-			String BlueGroup = inputGroup1.getText();
+			String RedName = inputName1.getText();
+			String RedWeight = inputWeight1.getText();
+			String RedGroup = inputGroup1.getText();
+						
+			String BlueName = inputName2.getText();
+			String BlueWeight = inputWeight2.getText();
+			String BlueGroup = inputGroup2.getText();
 			
-			Player BluePlayer = new Player(BlueName,BlueGroup,BlueWeight);
-			
-			
-			String RedName = inputName2.getText();
-			String RedWeight = inputWeight2.getText();
-			String RedGroup = inputGroup2.getText();
 			
 			Player RedPlayer = new Player(RedName,RedGroup,RedWeight);
 			
-<<<<<<< HEAD
+			Player BluePlayer = new Player(BlueName,BlueGroup,BlueWeight);
+			
+			String howManyPlayGame = new String();
 			setNoVisible();
-=======
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
-			new GameScreen(BluePlayer, RedPlayer);
+			if(type[0].isSelected()) {
+				howManyPlayGame= "5";
+			}else {
+				howManyPlayGame = "3";
+			}
+			new GameScreen(kingtext.getText(),howManyPlayGame,BluePlayer, RedPlayer);
 			
 		}
 	});
       
-<<<<<<< HEAD
-     
-=======
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
+
       //North 패널 레이아웃 나누기
       North = new JPanel(new GridLayout(1, 2));
       north();
@@ -106,46 +103,7 @@ public class Player_info extends JFrame {
 
       }
    
-<<<<<<< HEAD
-      private void north() {
-         
-         //레이아웃
-         king = new JPanel(new FlowLayout(FlowLayout.LEFT, 10,10));
-         checkbox = new JPanel();
-         king.setBackground(Color.black);
-         checkbox.setBackground(Color.black);
-         
-         //레이블
-         kinglabel = new JLabel("주관 : ");
-         kinglabel.setFont(Big);
-         kinglabel.setForeground(Color.white); 
-         
-         //텍스트 필드
-         kingtext =new JTextField(10);
-         
-         //체크박스      
-         type[0] = new JCheckBox("5판 3선제",false);
-         type[1] = new JCheckBox("3판 2선제",false);
-         type[0].setFont(Big);
-         type[1].setFont(Big);
-         type[0].setBackground(Color.black);
-         type[1].setBackground(Color.black);
-         checkbox.setBackground(Color.black);
-         type[0].setForeground(Color.white); 
-         type[1].setForeground(Color.white);
-         
-         //패널 배치
-         king.add(kinglabel);
-         king.add(kingtext);
-         checkbox.add(type[0]);
-         checkbox.add(type[1]);
-         North.add(king);
-         North.add(checkbox);
-         
-         contentPane.add(North,"North");
-      
-      }
-=======
+
    private void north() {
        
        //레이아웃
@@ -160,7 +118,7 @@ public class Player_info extends JFrame {
        kinglabel.setForeground(Color.white); 
        
        //텍스트 필드
-       kingtext =new JTextField(10);
+       kingtext =new JTextField(15);
        
        //체크박스      
        type[0] = new JRadioButton("5판 3선제",false);
@@ -172,7 +130,7 @@ public class Player_info extends JFrame {
        checkbox.setBackground(Color.black);
        type[0].setForeground(Color.white); 
        type[1].setForeground(Color.white);
-       
+       type[1].setSelected(true);
        //라디오 버튼 그룹화
        ButtonGroup groupRd = new ButtonGroup();
        groupRd.add(type[0]);
@@ -192,10 +150,8 @@ public class Player_info extends JFrame {
        contentPane.add(North,"North");
     
     }
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
 
-      
-      private void centerLeft() {
+      private void centerRight() {
          
          //레이아웃 나누기
          Left = new JPanel(new GridLayout(4,1));
@@ -250,7 +206,7 @@ public class Player_info extends JFrame {
          
       }
       
-      private void centerRight() {
+      private void centerLeft() {
          
          //레이아웃 나누기
          Right= new JPanel(new GridLayout(4,1));
@@ -304,12 +260,10 @@ public class Player_info extends JFrame {
          contentPane.add(Center,"Center");
          
       }
-<<<<<<< HEAD
+
       public void setNoVisible() {
     	  this.setVisible(false);
       }
-      
-=======
->>>>>>> db7470642cb2c3f4e624c3d4b781c41f064fd66f
+
       
 }

@@ -30,7 +30,7 @@ public class HeaderTitle extends JPanel {
 		
 		//제목설정
 		JLabel title = new JLabel(t);
-		title.setFont(new Font("Gothic",Font.BOLD,70));
+		title.setFont(new Font("맑은 고딕",Font.BOLD,70));
 		title.setForeground(Color.white);
 		
 		//스폰서

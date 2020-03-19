@@ -22,7 +22,7 @@ public class CautionPanel extends JPanel {
 	
 	public void paint(Graphics g) {
 
-		g.setFont(new Font("Gothic",Font.BOLD,30));
+		g.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,30));
 		g.setColor(Color.white);
 		if(cautionBlueCount==1) {
 			g.drawArc(20, 20, 25, 25, 0, 360);
