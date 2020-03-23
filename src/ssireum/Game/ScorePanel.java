@@ -38,7 +38,7 @@ public class ScorePanel extends JPanel {
 		
 		//Å×µÎ¸®
 		LineBorder lineborder = new LineBorder(Color.yellow,4,true);
-		EmptyBorder emptyborder = new EmptyBorder(-10,20,-20,20);
+		EmptyBorder emptyborder = new EmptyBorder(-10,20,-5,20);
 		CompoundBorder b10 = new CompoundBorder(lineborder,emptyborder);
 
 

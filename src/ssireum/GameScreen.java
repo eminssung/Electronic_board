@@ -42,16 +42,18 @@ public class GameScreen extends JFrame{
 	ScorePanel ScorePanel;
 	Timer timer;
 	int PlayGameNumber;
-
+	JPanel CenterPanel;
+	boolean BlueScoreOn=true;
+	boolean RedScoreOn=true;
 	public GameScreen(String GameName,String howManyPlayGame,ssireum.Player blue,ssireum.Player red) {
-		
+
 		//판수 설정
 		if(howManyPlayGame.contentEquals("5")) {
-			PlayGameNumber=6;
+			PlayGameNumber=5;
 		}else {
-			PlayGameNumber=4;
+			PlayGameNumber=3;
 		}
-		
+
 		//기본설정
 		setTitle("게임화면");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,15 +63,15 @@ public class GameScreen extends JFrame{
 		c = this.getContentPane();
 		c.setBackground(Color.black);
 		c.setLayout(new BorderLayout());
-		
-		
-		
+
+
+
 		//타이머
 		timerLabel = new JLabel("60");
 		timerLabel.setFont(new Font("맑은 고딕",Font.BOLD,200));
 		timerLabel.setForeground(Color.white);
 		timerLabel.setBorder(BorderFactory.createEmptyBorder(0,50,0,50));
-		
+
 
 		//헤더생성
 		HeaderTitle HeaderTitle = new HeaderTitle(GameName);
@@ -88,12 +90,12 @@ public class GameScreen extends JFrame{
 		Video[0] = ".\\res\\kang1.mp4";
 		Video[1] = ".\\res\\kang2.mp4";
 		Video[2] = ".\\res\\kang3.mp4";
-		
-	    
-//		AdPanel adPanel = new AdPanel();
-//		adPanel.setAV(Video);
-//
-//		c.add(adPanel,"South");
+
+		//
+		//				AdPanel adPanel = new AdPanel();
+		//				adPanel.setAV(Video);
+		//		
+		//				c.add(adPanel,"South");
 
 		//풀스크린
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -112,7 +114,7 @@ public class GameScreen extends JFrame{
 					timerLabel.setText(Integer.toString(time));
 					timer.stop();
 					TimerOn=false;
-					
+
 				}else {
 					time -= 1;
 					if(time<10) {
@@ -130,7 +132,7 @@ public class GameScreen extends JFrame{
 		//키어댑터
 		this.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
-								System.out.println(e.getKeyChar()+" keyTyped key");
+				System.out.println(e.getKeyChar()+" keyTyped key");
 				if(e.getKeyChar()== ' ') {
 					if(TimerOn) {
 						timer.stop();
@@ -140,67 +142,94 @@ public class GameScreen extends JFrame{
 						TimerOn=true;
 					}
 				}else if(e.getKeyChar() == 'a') {
-					timer.stop();
-					TimerOn=false;
-					time = 60;
-					timerLabel.setText(Integer.toString(time));
-					timer.stop();
-					TimerOn=false;
-					ScorePanel.blueWin();
-					if(ScorePanel.BlueScore==PlayGameNumber) {
-						dispose();
-						new Player_info();
+					if(BlueScoreOn) {
+						if(ScorePanel.BlueScore<PlayGameNumber-1) {
+							timer.stop();
+							TimerOn=false;
+							time = 60;
+							timerLabel.setText(Integer.toString(time));
+							timer.stop();
+							TimerOn=false;
+							ScorePanel.blueWin();
+							System.out.println("블루: "+ScorePanel.BlueScore);
+							if(ScorePanel.BlueScore==PlayGameNumber-1) {
+								RedScoreOn=false;
+								BlueScoreOn=false;
+								System.out.println("블루승 끄기");
+
+							}
+						}
 					}
 				}
 				else if(e.getKeyChar() == '\'') {
-					timer.stop();
-					TimerOn=false;
-					time = 60;
-					timerLabel.setText(Integer.toString(time));
-					timer.stop();
-					TimerOn=false;
-					ScorePanel.redWin();
-					if(ScorePanel.RedScore==PlayGameNumber) {
-						dispose();
-						new Player_info();
+					if(RedScoreOn) {
+						if(ScorePanel.RedScore<PlayGameNumber-1) {
+							timer.stop();
+							TimerOn=false;
+							time = 60;
+							timerLabel.setText(Integer.toString(time));
+							timer.stop();
+							TimerOn=false;
+							ScorePanel.redWin();
+							System.out.println("레드: "+ScorePanel.RedScore);
+							if(ScorePanel.RedScore==PlayGameNumber-1) {
+								RedScoreOn=false;
+								BlueScoreOn=false;
+								System.out.println("레드승 끄기");
+
+							}
+						}
 					}
 				}
 				else if(e.getKeyChar() == 's') {
 					timer.stop();
 					TimerOn=false;
 					ScorePanel.cautionBlue();
+					if(ScorePanel.caution.cautionBlueCount==3) {
+						dispose();
+						new Player_info();
+					}
 				}
 				else if(e.getKeyChar() == ';') {
 					timer.stop();
 					TimerOn=false;
 					ScorePanel.cautionRed();
+					if(ScorePanel.caution.cautionRedCount==3) {
+						dispose();
+						new Player_info();
+					}
 
+				}else if(e.getKeyChar()=='y') {
+					if(ScorePanel.BlueScore==(PlayGameNumber-1)||ScorePanel.RedScore==(PlayGameNumber-1)) {
+						dispose();
+						new Player_info();
+					}
 				}
 			}
 		});
 
 	}
-	
+
 	public void createCenterPanel(Player blue,Player red) {
-		
+
 
 		//선수정보
 		BluePlayer bp = new BluePlayer(blue.name, blue.affiliation);
 		RedPlayer rp = new RedPlayer(red.name, red.affiliation);
-		
 
-		
+
+
 		//선수정보 마진설정
 		bp.setBorder(BorderFactory.createEmptyBorder(200,0,50,0));
 		rp.setBorder(BorderFactory.createEmptyBorder(200,0,50,0));
 
 
 		//센터패널
-		JPanel CenterPanel = new JPanel();
+		CenterPanel = new JPanel();
 		CenterPanel.setLayout(new FlowLayout());
 		CenterPanel.setBackground(Color.black);
 
-		
+
 		//스코어 추가
 		ScorePanel = new ScorePanel(timerLabel,blue,red);
 
@@ -208,12 +237,11 @@ public class GameScreen extends JFrame{
 		CenterPanel.add(bp);
 		CenterPanel.add(ScorePanel);
 		CenterPanel.add(rp);
-		
+
 		c.add(CenterPanel,"Center");
 
-	}
-	
 
-	
-	
+	}
+
+
 }

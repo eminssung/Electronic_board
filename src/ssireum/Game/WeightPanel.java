@@ -26,11 +26,11 @@ public class WeightPanel extends JPanel {
 	public void paint(Graphics g) {
 		g.setFont(new Font("Gothic",Font.BOLD,30));
 		g.setColor(Color.white);
-		g.drawString(blueWeight, 15, 37);
-		g.drawLine(155, 28 , 220, 28);
-		g.drawString("체중", 235, 40);
-		g.drawLine(312, 28 , 377, 28);
-		g.drawString(RedWeight, 400, 37);
+		g.drawString(blueWeight, 30, 37);
+		g.drawLine(170, 28 , 235, 28);
+		g.drawString("체중", 250, 40);
+		g.drawLine(327, 28 , 392, 28);
+		g.drawString(RedWeight, 415, 37);
 
 
 

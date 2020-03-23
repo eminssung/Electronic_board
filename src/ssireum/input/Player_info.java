@@ -67,19 +67,22 @@ public class Player_info extends JFrame {
 			String BlueWeight = inputWeight2.getText();
 			String BlueGroup = inputGroup2.getText();
 			
-			
-			Player RedPlayer = new Player(RedName,RedGroup,RedWeight);
-			
-			Player BluePlayer = new Player(BlueName,BlueGroup,BlueWeight);
-			
-			String howManyPlayGame = new String();
-			setNoVisible();
-			if(type[0].isSelected()) {
-				howManyPlayGame= "5";
+			if(RedName.equals("") || RedWeight.equals("") || RedGroup.equals("") || BlueName.equals("") || BlueWeight.equals("") || BlueGroup.equals("") || kingtext.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "선수정보를 모두 입력하세요", "정보입력 에러", JOptionPane.WARNING_MESSAGE);
 			}else {
-				howManyPlayGame = "3";
+				Player RedPlayer = new Player(RedName,RedGroup,RedWeight);
+				
+				Player BluePlayer = new Player(BlueName,BlueGroup,BlueWeight);
+				
+				String howManyPlayGame = new String();
+				setNoVisible();
+				if(type[0].isSelected()) {
+					howManyPlayGame= "5";
+				}else {
+					howManyPlayGame = "3";
+				}
+				new GameScreen(kingtext.getText(),howManyPlayGame,BluePlayer, RedPlayer);
 			}
-			new GameScreen(kingtext.getText(),howManyPlayGame,BluePlayer, RedPlayer);
 			
 		}
 	});
