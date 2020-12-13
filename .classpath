@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="res"/>
 	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/jna-5.5.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/jna-platform-5.5.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/vlcj-4.4.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/vlcj-natives-4.1.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/commons-compress-1.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/commons-compress-1.20-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/commons-compress-1.20-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/commons-compress-1.20-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/commons-compress-1.20-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/curvesapi-1.06.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/poi-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/poi-examples-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/poi-excelant-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/poi-ooxml-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/poi-ooxml-schemas-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/poi-scratchpad-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eminh/eclipse-workspace/Electronic_board-master/library/xmlbeans-3.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

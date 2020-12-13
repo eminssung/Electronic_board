@@ -13,6 +13,7 @@ import uk.co.caprica.vlcj.player.base.MediaPlayerEventAdapter;
 import uk.co.caprica.vlcj.player.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer; 
 
+
 public class AdPanel extends JPanel { 
 	private EmbeddedMediaPlayerComponent component; 
 	private EmbeddedMediaPlayer player; 

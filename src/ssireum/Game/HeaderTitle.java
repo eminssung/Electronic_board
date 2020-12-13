@@ -20,12 +20,13 @@ public class HeaderTitle extends JPanel {
 
 	public HeaderTitle(String t) {
 		//배경설정
-		this.setBackground(Color.black);
+//		this.setBackground(Color.black);
+		this.setOpaque(false);
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
 		//글자패널
 		JPanel WritingPanel = new JPanel();
-		WritingPanel.setBackground(Color.black);
+//		WritingPanel.setBackground(Color.black);
 		WritingPanel.setLayout(new FlowLayout());
 		
 		//제목설정

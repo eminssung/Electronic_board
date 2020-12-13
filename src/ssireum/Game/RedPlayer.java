@@ -11,9 +11,12 @@ import javax.swing.JPanel;
 
 public class RedPlayer extends JPanel {
 
+	JLabel NameLabel;
+	JLabel AffLabel;
+	
 	public RedPlayer(String name,String affiliation)  {
-		JLabel NameLabel = new JLabel(name);
-		JLabel AffLabel = new JLabel(affiliation);
+		NameLabel = new JLabel(name);
+		AffLabel = new JLabel(affiliation);
 
 		NameLabel.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,200));
 		NameLabel.setForeground(Color.white);
@@ -27,10 +30,16 @@ public class RedPlayer extends JPanel {
 		AffLabel.setAlignmentX( Component.LEFT_ALIGNMENT );//0.0
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.setBackground(Color.black);
+//		this.setBackground(Color.black);
+		this.setOpaque(false);
 		this.add(AffLabel);
 		this.add(NameLabel); 
 	}
-
+	
+	public void changeLabel(String name,String affiliation) {
+		NameLabel.setText(name);
+		AffLabel.setText(affiliation);
+		this.repaint();
+	}
 
 }

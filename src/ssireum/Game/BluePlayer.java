@@ -13,10 +13,13 @@ import javax.swing.JPanel;
 
 public class BluePlayer extends JPanel {
 
+	JLabel NameLabel;
+	JLabel AffLabel;
+	
 	public BluePlayer(String name,String affiliation) {
 		this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 300));
-		JLabel NameLabel = new JLabel(name);
-		JLabel AffLabel = new JLabel(affiliation);
+		NameLabel = new JLabel(name);
+		AffLabel = new JLabel(affiliation);
 		
 		NameLabel.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,200));
 		NameLabel.setForeground(Color.white);
@@ -31,8 +34,14 @@ public class BluePlayer extends JPanel {
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBackground(Color.black);
+		this.setOpaque(false);
 		this.add(AffLabel);
 		this.add(NameLabel); 
+	}
+	
+	public void changeLabel(String name,String affiliation) {
+		NameLabel.setText(name);
+		AffLabel.setText(affiliation);
 	}
 
 }

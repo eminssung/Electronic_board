@@ -31,12 +31,13 @@ public class WeightPanel extends JPanel {
 		g.drawString("Ã¼Áß", 250, 40);
 		g.drawLine(327, 28 , 392, 28);
 		g.drawString(RedWeight, 415, 37);
-
-
-
-
-
 	}
 
+	
+	public void changeWeight(String b,String r) {
+		blueWeight=b+" KG";
+		RedWeight=r+" KG";
+		this.repaint();
+	}
 
 }
